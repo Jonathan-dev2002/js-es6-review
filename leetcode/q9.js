@@ -39,3 +39,8 @@ const argumentsLength1 = (...args1) =>{
     }
     return count
 }
+
+//หรือ
+var argumentsLength2 = function(...args2) {
+    return args2.reduce((count, arg2) => count + 1, 0);
+};
