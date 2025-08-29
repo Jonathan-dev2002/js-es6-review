@@ -41,37 +41,12 @@
     Falsy: มีอยู่ไม่กี่ตัวที่ต้องจำ คือ false, 0, "" (ข้อความว่าง), null, undefined, และ NaN
 */
 
-var map = function (arr, fn) {
+var filter = function(arr, fn) {
     const newArr = []
-    for (let i = 0; i < arr.length; i++) {
-        const transformValue = fn(arr[i], i)
-        newArr.push(transformValue)
+    for (let i=0;i<arr.length;i++){
+        if (fn(arr[i],i)) {
+            newArr.push(arr[i])
+        }
     }
     return newArr
 };
-
-//แบบใช้ arr.map()
-var map_builtin = function (arr, fn) {
-    return arr.map(fn);
-};
-
-// ตัวอย่างที่ 1: เพิ่มค่าทุกตัวด้วย 1
-console.log("--- Example 1 ---");
-const arr1 = [1, 2, 3];
-const plusone = function (n) { return n + 1; };
-const newArray1 = map(arr1, plusone);
-console.log(newArray1); // ผลลัพธ์ที่คาดหวัง: [2, 3, 4]
-
-// ตัวอย่างที่ 2: เพิ่มค่าด้วย index
-console.log("--- Example 2 ---");
-const arr2 = [1, 2, 3];
-const plusI = function (n, i) { return n + i; };
-const newArray2 = map(arr2, plusI);
-console.log(newArray2); // ผลลัพธ์ที่คาดหวัง: [1, 3, 5]
-
-// ตัวอย่างที่ 3: คืนค่า 42 เสมอ
-console.log("--- Example 3 ---");
-const arr3 = [10, 20, 30];
-const constant = function () { return 42; };
-const newArray3 = map(arr3, constant);
-console.log(newArray3); // ผลลัพธ์ที่คาดหวัง: [42, 42, 42]
