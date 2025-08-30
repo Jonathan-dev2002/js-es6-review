@@ -38,7 +38,7 @@
  * @return {Function}
  */
 var once = function(fn) {
-    hasBeenCalled = false
+    let hasBeenCalled = false
     return function(...args){
         if(!hasBeenCalled){
             hasBeenCalled = true
